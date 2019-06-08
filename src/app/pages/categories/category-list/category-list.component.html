@@ -1,0 +1,36 @@
+<nav class="mb-5">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/"><i class="fas fa-hand-holding-usd"></i> Home</a></li>
+    <li class="breadcrumb-item active"><i class="fas fa-stream"></i> Categorias</li>
+  </ol>
+</nav>
+
+<div class="row mb-4">
+  <div class="col-md">
+    <h1 class="h2 border-left pl-2"><i class="fas fa-stream"></i> Categorias</h1>
+  </div>
+  <div class="col-md">
+    <a routerLink="new" class="btn btn-success float-right"><i class="fas fa-plus-circle"></i> Categoria</a>
+  </div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="bg-primary text-light">
+      <th>Categoria</th>
+      <th class="text-center"><i class="fas fa-tools"></i> Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>
+        <strong>{{category.name}}</strong><br>
+        <small>{{category.description}}</small>
+      </td>
+      <td class="text-center">
+        <a [routerLink]="[category.id, 'edit']" class="btn btn-outline-info btn-sm mr-2"><i class="far fa-edit"></i> Editar</a>
+        <button (click)="deleteCategory(category)" class="btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i> Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
