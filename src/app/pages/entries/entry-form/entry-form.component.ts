@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Entry } from '../shared/entry.model';
@@ -16,7 +16,7 @@ import toastr from 'toastr';
   templateUrl: './entry-form.component.html',
   styleUrls: ['./entry-form.component.css']
 })
-export class EntryFormComponent implements OnInit {
+export class EntryFormComponent implements OnInit, AfterContentChecked {
 
   currentAction: string;
   entryForm: FormGroup;
