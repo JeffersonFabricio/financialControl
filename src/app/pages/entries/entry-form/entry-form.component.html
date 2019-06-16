@@ -1,13 +1,6 @@
-<nav class="mb-5">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink="/"><i class="fas fa-hand-holding-usd"></i> Home</a></li>
-    <li class="breadcrumb-item"><a routerLink="/entries"><i class="fas fa-cart-plus"></i> Lançamentos</a></li>
-    <li class="breadcrumb-item active" *ngIf="pageTitle == 'Cadastro de um novo Lançamento'">
-      <i class="fas fa-plus-circle"></i> {{ pageTitle }}</li>
-    <li class="breadcrumb-item active" *ngIf="pageTitle != 'Cadastro de um novo Lançamento'">
-      <i class="fas fa-edit"></i> {{ pageTitle }}</li>
-  </ol>
-</nav>
+<app-bread-crumb
+  [itens]="[{text: 'Lançamentos', link: '/entries'}, {text: pageTitle}]"
+></app-bread-crumb>
 
 <div class="row mb-4">
   <div class="col-md-9">
