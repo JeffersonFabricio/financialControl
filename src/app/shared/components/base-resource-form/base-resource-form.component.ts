@@ -14,7 +14,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   currentAction: string;
   resourceForm: FormGroup;
   pageTitle: string;
-  serverErrorMessages: string[] = null;
+  serverErrorMsg: string[] = null;
   submittingForm: boolean = false;
 
   protected route: ActivatedRoute;
@@ -128,9 +128,9 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     this.submittingForm = false;
 
     if(error.status === 422) //significa que o recurso não foi processado com sucesso
-      this.serverErrorMessages = JSON.parse(error._body).errors;
+      this.serverErrorMsg = JSON.parse(error._body).errors;
     else
-      this.serverErrorMessages = ['Falha na comunicação com o servidor. Por favor tente mais tarde.']
+      this.serverErrorMsg = ['Falha na comunicação com o servidor. Por favor tente mais tarde.']
   }
 
   protected abstract buildResourceForm(): void;
